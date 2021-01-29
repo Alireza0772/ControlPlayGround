@@ -1,0 +1,58 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="../../Colors/MainColors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<LinearGradientBrush x:Key="BluePink" StartPoint="0,0" EndPoint="1,1">
+		<GradientStop Color="{StaticResource DarkBlue1}" Offset="0"/>
+		<GradientStop Color="{StaticResource LightPink}" Offset="1"/>
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="DB1DB2"
+						 StartPoint="0,0"
+						 EndPoint="1,1">
+		<GradientStop Color="{StaticResource DarkBlue1}"
+					  Offset="0" />
+		<GradientStop Color="{StaticResource DarkBlue2}"
+					  Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="DB1LB1"
+						 StartPoint="0,0"
+						 EndPoint="1,1">
+		<GradientStop Color="{StaticResource DarkBlue1}"
+					  Offset="0" />
+		<GradientStop Color="{StaticResource LightBlue1}"
+					  Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="DB1LB2"
+						 StartPoint="0,0"
+						 EndPoint="1,1">
+		<GradientStop Color="{StaticResource DarkBlue1}"
+					  Offset="0" />
+		<GradientStop Color="{StaticResource LightBlue2}"
+					  Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="DB2LB1"
+						 StartPoint="0,0"
+						 EndPoint="1,1">
+		<GradientStop Color="{StaticResource DarkBlue2}"
+					  Offset="0" />
+		<GradientStop Color="{StaticResource LightBlue1}"
+					  Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="DB2LB2"
+						 StartPoint="0,0"
+						 EndPoint="1,1">
+		<GradientStop Color="{StaticResource DarkBlue2}"
+					  Offset="0" />
+		<GradientStop Color="{StaticResource LightBlue2}"
+					  Offset="1" />
+	</LinearGradientBrush>
+	<LinearGradientBrush x:Key="LB1LB2"
+						 StartPoint="0,0"
+						 EndPoint="1,1">
+		<GradientStop Color="{StaticResource LightBlue1}"
+					  Offset="0" />
+		<GradientStop Color="{StaticResource LightBlue2}"
+					  Offset="1" />
+	</LinearGradientBrush>
+</ResourceDictionary>

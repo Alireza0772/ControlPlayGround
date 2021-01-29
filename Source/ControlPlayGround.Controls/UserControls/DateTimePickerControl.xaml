@@ -1,0 +1,138 @@
+﻿<UserControl x:Class="ControlPlayGround.Controls.UserControls.DateTimePickerControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlPlayGround.Controls.UserControls"
+			 xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+			 xmlns:converters="clr-namespace:ControlPlayGround.Converters;assembly=ControlPlayGround.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+	<UserControl.Resources>
+		<converters:DateTimeToForegroundConverter x:Key="DateTimeToForegroundConverter" />
+		<converters:DateTimeToBackgroundConverter x:Key="DateTimeToBackgroundConverter" />
+	</UserControl.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition />
+				<ColumnDefinition />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Button Content="&lt;"
+					Click="Previous_Click" />
+			<TextBox Grid.Column="1"
+					 HorizontalAlignment="Right"
+					 Name="yearBox"
+					 LostFocus="yearBox_LostFocus"
+					 PreviewKeyDown="yearBox_PreviewKeyDown"
+					 TextChanged="yearBox_TextChanged" />
+			<ComboBox Grid.Column="2"
+					  x:Name="monthBox"
+					  HorizontalAlignment="Left"
+					  SelectionChanged="monthBox_SelectionChanged"
+					  IsEditable="True" />
+			<Button Grid.Column="3"
+					Content="&gt;"
+					Click="Next_Click" />
+		</Grid>
+		<ItemsControl x:Name="weekDays"
+					  Grid.Row="1">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Columns="7" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding}"
+							   HorizontalAlignment="Center" />
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+		<ItemsControl Name="daysPanel"
+					  Grid.Row="2">
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Columns="7"
+								 Rows="6" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+			<ItemsControl.ItemTemplate>
+				<DataTemplate>
+					<Button 	 VerticalContentAlignment="Center"
+								 HorizontalContentAlignment="Center"
+								 Click="Day_Click">
+						<Button.Background>
+							<MultiBinding Converter="{StaticResource DateTimeToBackgroundConverter}">
+								<Binding Mode="OneWay" />
+								<Binding RelativeSource="{RelativeSource AncestorType=UserControl}"
+										 Path="SelectedDate" />
+							</MultiBinding>
+						</Button.Background>
+						<Button.Style>
+							<Style TargetType="Button">
+								<Setter Property="BorderBrush"
+										Value="{x:Null}" />
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate TargetType="Button">
+											<Grid>
+												<Border x:Name="Border"
+														BorderBrush="{x:Null}"
+														BorderThickness="0"
+														Background="{TemplateBinding Background}" />
+												<ContentPresenter VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+																  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" />
+												<VisualStateManager.VisualStateGroups>
+													<VisualStateGroup x:Name="CommonStates">
+														<VisualState x:Name="Normal" />
+														<VisualState x:Name="MouseOver">
+															<Storyboard>
+																<ColorAnimation Storyboard.TargetProperty="Background.Color"
+																				Storyboard.TargetName="Border"
+																				To="#FF1625C1"
+																				Duration="0:0:0.5" />
+															</Storyboard>
+														</VisualState>
+														<VisualState x:Name="Pressed">
+															<Storyboard>
+																<Storyboard>
+																	<ColorAnimation Storyboard.TargetProperty="Background.Color"
+																					Storyboard.TargetName="Border"
+																					To="Orange"
+																					Duration="0:0:0.3" />
+																</Storyboard>
+															</Storyboard>
+														</VisualState>
+														<VisualState x:Name="Disabled" />
+													</VisualStateGroup>
+												</VisualStateManager.VisualStateGroups>
+											</Grid>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</Button.Style>
+						<Button.Content>
+							<TextBlock Text="{Binding  ConverterCulture={x:Static globalization:CultureInfo.CurrentCulture}, StringFormat=%d}">
+								<TextBlock.Foreground>
+									<MultiBinding Converter="{StaticResource DateTimeToForegroundConverter}">
+										<Binding ConverterCulture="{x:Static globalization:CultureInfo.CurrentCulture}" />
+										<Binding Path="SelectedIndex"
+												 ElementName="monthBox" />
+									</MultiBinding>
+								</TextBlock.Foreground></TextBlock>
+						</Button.Content>
+					</Button>
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+		</ItemsControl>
+	</Grid>
+</UserControl>

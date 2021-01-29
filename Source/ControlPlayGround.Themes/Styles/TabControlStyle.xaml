@@ -1,0 +1,187 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:converters="clr-namespace:ControlPlayGround.Converters;assembly=ControlPlayGround.Converters">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="../Colors/MainColors.xaml" />
+		<ResourceDictionary Source="../Brushes/GradientBrushes/BluishPalette.xaml" />
+		<ResourceDictionary Source="../Brushes/SolidBrushes/MainBrushes.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<Style x:Key="TabControlStyle"
+		   TargetType="{x:Type TabControl}">
+		<Setter Property="Tag"
+				Value="pack://application:,,,/ControlPlayGround.Themes;component/Assets/logo.png" />
+		<Setter Property="HorizontalContentAlignment"
+				Value="Center" />
+		<Setter Property="Padding"
+				Value="0" />
+		<Setter Property="VerticalContentAlignment"
+				Value="Center" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TabControl}">
+					<Grid x:Name="templateRoot"
+						  ClipToBounds="true"
+						  SnapsToDevicePixels="true"
+						  KeyboardNavigation.TabNavigation="Local">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition x:Name="ColumnDefinition0"
+											  Width="Auto" />
+							<ColumnDefinition x:Name="ColumnDefinition1" />
+						</Grid.ColumnDefinitions>
+						<TabPanel x:Name="headerPanel"
+								  Background="#FF151515"
+								  IsItemsHost="true"
+								  Margin="0,5"
+								  KeyboardNavigation.TabIndex="1"
+								  Panel.ZIndex="1" />
+						<Border x:Name="contentPanel"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								Grid.Column="1"
+								Panel.ZIndex="0"
+								Background="{StaticResource DarkBlue1Brush}"
+								KeyboardNavigation.DirectionalNavigation="Contained"
+								KeyboardNavigation.TabIndex="2"
+								KeyboardNavigation.TabNavigation="Local">
+							<ContentPresenter x:Name="PART_SelectedContentHost"
+											  ContentSource="SelectedContent"
+											  Margin="5"
+											  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsEnabled"
+								 Value="false">
+							<Setter Property="TextElement.Foreground"
+									TargetName="templateRoot"
+									Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+	<Style x:Key="TabItemStyle"
+		   TargetType="{x:Type TabItem}">
+		<Setter Property="Margin"
+				Value="0" />
+		<Setter Property="HorizontalContentAlignment"
+				Value="Stretch" />
+		<Setter Property="Padding"
+				Value="20,10" />
+		<Setter Property="VerticalContentAlignment"
+				Value="Stretch" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="{x:Type TabItem}">
+					<Grid x:Name="templateRoot"
+						  SnapsToDevicePixels="true">
+						<Grid x:Name="mainBorder"
+								Panel.ZIndex="0">
+							<Grid.Background>
+								<LinearGradientBrush x:Name="gradient" StartPoint="0,0"
+													 EndPoint="1,0">
+									<GradientStop Color="#FF151515"
+												  Offset="0" />
+									<GradientStop Color="#FF151515"
+												  Offset="1" />
+								</LinearGradientBrush>
+							</Grid.Background>
+							<Border x:Name="hover"
+									Background="#FF151515" Visibility="Collapsed"/>
+							<ContentPresenter x:Name="contentPresenter"
+											  ContentSource="Header"
+											  TextElement.FontSize="16"
+											  Focusable="False"
+											  Panel.ZIndex="0"
+											  HorizontalAlignment="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+											  Margin="{TemplateBinding Padding}"
+											  RecognizesAccessKey="True"
+											  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"
+											  VerticalAlignment="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}">
+								<TextElement.Foreground>
+									<SolidColorBrush Color="{StaticResource LightBlue2}" />
+								</TextElement.Foreground>
+							</ContentPresenter>
+						</Grid>
+						<Border Width="2"
+								Name="indicator"
+								HorizontalAlignment="Left"
+								Visibility="Collapsed">
+							<Border.Background>
+								<SolidColorBrush Color="{StaticResource LightBlue2}" />
+							</Border.Background>
+						</Border>
+					</Grid>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsSelected" Value="True">
+							<Setter Property="Visibility"
+									TargetName="indicator"
+									Value="Visible" />
+							<Trigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation Storyboard.TargetProperty="GradientStops[0].Color"
+														Storyboard.TargetName="gradient"
+														Duration="0:0:0.3"
+														To="{StaticResource DarkBlue1}" />
+										<ColorAnimation Storyboard.TargetProperty="GradientStops[1].Color"
+														Storyboard.TargetName="gradient"
+														Duration="0:0:0.3"
+														To="#FF151515" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation Storyboard.TargetProperty="GradientStops[0].Color"
+														Storyboard.TargetName="gradient"
+														Duration="0:0:0.3"
+														To="#FF151515" />
+										<ColorAnimation Storyboard.TargetProperty="GradientStops[1].Color"
+														Storyboard.TargetName="gradient"
+														Duration="0:0:0.3"
+														To="#FF151515" />
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.ExitActions>
+						</Trigger>
+						<Trigger Property="IsMouseOver"
+								 SourceName="mainBorder"
+								 Value="True">
+							<Trigger.EnterActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+														Storyboard.TargetName="hover"
+														Duration="0:0:0.3"
+														To="{StaticResource DarkBlue1}" />
+										<ObjectAnimationUsingKeyFrames  Storyboard.TargetName="hover" Storyboard.TargetProperty="(UIElement.Visibility)" >
+											<DiscreteObjectKeyFrame KeyTime="00:00:00"
+																	Value="{x:Static Visibility.Visible}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.EnterActions>
+							<Trigger.ExitActions>
+								<BeginStoryboard>
+									<Storyboard>
+										<ColorAnimation Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)"
+														Storyboard.TargetName="hover"
+														Duration="0:0:0.3"
+														To="#FF151515" />
+										<ObjectAnimationUsingKeyFrames  Storyboard.TargetName="hover"
+																		Storyboard.TargetProperty="(UIElement.Visibility)">
+											<DiscreteObjectKeyFrame KeyTime="00:00:00"
+																	Value="{x:Static Visibility.Collapsed}" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</BeginStoryboard>
+							</Trigger.ExitActions>
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

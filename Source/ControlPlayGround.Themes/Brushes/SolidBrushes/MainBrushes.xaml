@@ -1,0 +1,27 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="../../Colors/MainColors.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+	<SolidColorBrush Color="{StaticResource DarkBlue1}"
+					 x:Key="DarkBlue1Brush" />
+	<SolidColorBrush Color="{StaticResource DarkBlue2}"
+					 x:Key="DarkBlue2Brush" />
+	<SolidColorBrush Color="{StaticResource LightBlue1}"
+					 x:Key="LightBlue1Brush" />
+	<SolidColorBrush Color="{StaticResource LightBlue2}"
+					 x:Key="LightBlue2Brush" />
+	<SolidColorBrush Color="{StaticResource LightPink}"
+					 x:Key="LightPinkBrush" />
+	
+	<SolidColorBrush Color="{StaticResource BlueGray}"
+					 x:Key="BlueGrayBrush" />
+	
+	<ImageBrush ImageSource="../../Assets/BackgroundTexture.png"
+				x:Key="BackgroundTextureBrush"
+				Viewport="0,0 25,25"
+				ViewportUnits="Absolute"
+				TileMode="Tile"
+				Viewbox="0,0 50,50"
+				ViewboxUnits="Absolute" />
+</ResourceDictionary>

@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="ControlPlayGround.Controls.Header.MainHeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlPlayGround.Controls.Header"
+             mc:Ignorable="d"  d:DesignWidth="780.5">
+	<Grid Background="{StaticResource BlueGrayBrush}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="45" />
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition />
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+		<Button Style="{StaticResource WindowChromeButtonStyle}"
+				Margin="5,5,7,5"
+				WindowChrome.IsHitTestVisibleInChrome="True"
+				Click="Button_Click"
+				Visibility="Visible">
+			<Viewbox Stretch="Uniform"
+					 Margin="2" >
+				<Image Source="pack://application:,,,/ControlPlayGround.Themes;component/Assets/logo.png"/>
+			</Viewbox>
+			<Button.ToolTip>
+				<ToolTip Content="About Us"
+						 Placement="Mouse" />
+			</Button.ToolTip>
+		</Button>
+		<ContentPresenter Content="{Binding ElementName=header, Path=Menu}"
+						  WindowChrome.IsHitTestVisibleInChrome="True"
+						  Grid.Column="1" />
+		<TextBlock Grid.ColumnSpan="4"
+				   Text="Papital"
+				   Margin="5"
+				   Foreground="Gray"
+				   HorizontalAlignment="Center"
+				   VerticalAlignment="Center" />
+		<local:HeaderControl   VerticalAlignment="Center"
+							   HorizontalAlignment="Center"
+							   Grid.Column="3" />
+		<Border Grid.ColumnSpan="4"
+				Background="{StaticResource BluePink}"
+				Height="1"
+				VerticalAlignment="Bottom" />
+	</Grid>
+</UserControl>

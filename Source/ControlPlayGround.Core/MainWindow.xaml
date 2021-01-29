@@ -1,0 +1,144 @@
+﻿<Window x:Class="ControlPlayGround.Core.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		xmlns:sys="clr-namespace:System;assembly=mscorlib"
+		xmlns:local="clr-namespace:ControlPlayGround.Core"
+		xmlns:userControls="clr-namespace:ControlPlayGround.Controls.UserControls;assembly=ControlPlayGround.Controls"
+		xmlns:panels="clr-namespace:ControlPlayGround.Controls.Panels;assembly=ControlPlayGround.Controls"
+		xmlns:customControls="clr-namespace:ControlPlayGround.Controls;assembly=ControlPlayGround.Controls"
+		xmlns:header="clr-namespace:ControlPlayGround.Controls.Header;assembly=ControlPlayGround.Controls"
+		xmlns:helper="clr-namespace:ControlPlayGround.Controls.Helpers;assembly=ControlPlayGround.Controls"
+		mc:Ignorable="d"
+		Title="Control PlayGround"
+		Style="{StaticResource MainWindowStyle}"
+		Height="580"
+		Width="720">
+	<Window.Resources>
+		<GridViewColumnCollection x:Key="a">
+			<GridViewColumn Header="Name"
+							DisplayMemberBinding="{Binding}"
+							Width="100" />
+			<GridViewColumn Header="Family"
+							Width="100" />
+		</GridViewColumnCollection>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<header:MainHeaderControl>
+			<header:MainHeaderControl.Menu>
+				<Menu IsMainMenu="True"
+					  VerticalAlignment="Stretch"
+					  Background="{StaticResource BlueGrayBrush}">
+					<MenuItem Header="_File"
+							  VerticalAlignment="Stretch">
+						<MenuItem Command="New" />
+						<MenuItem Header="Open"
+								  InputGestureText="Ctrl+O" />
+						<MenuItem Command="Close" />
+						<MenuItem Header="Save"
+								  InputGestureText="Ctrl+S" />
+						<MenuItem Header="Export" />
+						<MenuItem Command="Print" />
+					</MenuItem>
+				</Menu>
+			</header:MainHeaderControl.Menu>
+		</header:MainHeaderControl>
+		<!--<panels:ListViewExtended Background="Transparent"
+											 SelectionMode="Multiple"
+											 BorderThickness="0"
+											 VerticalAlignment="Center" HorizontalAlignment="Center">
+						<panels:ListViewExtended.ItemsPanel>
+							<ItemsPanelTemplate>
+								<UniformGrid Columns="7" Rows="5"/>
+							</ItemsPanelTemplate>
+						</panels:ListViewExtended.ItemsPanel>
+						<panels:ListViewExtended.ItemContainerStyle>
+							<Style TargetType="{x:Type ListViewItem}">
+								<Setter Property="Background" Value="{StaticResource BlueGrayBrush}"/>
+								<Setter Property="Foreground" Value="LightGray"/>
+								<Setter Property="VerticalContentAlignment" Value="Center"/>
+								<Setter Property="HorizontalContentAlignment" Value="Center"/>
+								<Setter Property="Effect">
+									<Setter.Value>
+										<DropShadowEffect BlurRadius="10" ShadowDepth="0"/>
+									</Setter.Value>
+								</Setter>
+								<Setter Property="Margin" Value="2" />
+								<Setter Property="Template">
+									<Setter.Value>
+										<ControlTemplate TargetType="{x:Type ListViewItem}">
+											<Border x:Name="border" CornerRadius="10" Background="{TemplateBinding Background}" Width="70" Height="70">
+												<ContentPresenter Content="{TemplateBinding Content}" VerticalAlignment="Center" HorizontalAlignment="Center" TextElement.Foreground="LightGray"/>
+											</Border>
+											<ControlTemplate.Triggers>
+												<Trigger Property="IsSelected" Value="True">
+													<Trigger.EnterActions>
+														<BeginStoryboard>
+															<Storyboard>
+																<ColorAnimation Duration="0:0:0.2"
+																				Storyboard.TargetName="border"
+																				Storyboard.TargetProperty="Background.Color"
+																				To="{StaticResource LightPink}"/>
+															</Storyboard>
+														</BeginStoryboard>
+													</Trigger.EnterActions>
+													<Trigger.ExitActions>
+														<BeginStoryboard>
+															<Storyboard>
+																<ColorAnimation Duration="0:0:0.2"
+																				Storyboard.TargetName="border"
+																				Storyboard.TargetProperty="Background.Color"
+																				To="{StaticResource BlueGray}"/>
+															</Storyboard>
+														</BeginStoryboard>
+													</Trigger.ExitActions>
+												</Trigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</Setter.Value>
+								</Setter>
+							</Style>
+						</panels:ListViewExtended.ItemContainerStyle>
+						<sys:String>1</sys:String>
+						<sys:String>2</sys:String>
+						<sys:String>3</sys:String>
+						<sys:String>4</sys:String>
+						<sys:String>5</sys:String>
+						<sys:String>6</sys:String>
+						<sys:String>7</sys:String>
+						<sys:String>8</sys:String>
+						<sys:String>9</sys:String>
+						<sys:String>10</sys:String>
+						<sys:String>11</sys:String>
+						<sys:String>12</sys:String>
+						<sys:String>13</sys:String>
+						<sys:String>14</sys:String>
+						<sys:String>15</sys:String>
+						<sys:String>16</sys:String>
+						<sys:String>17</sys:String>
+						<sys:String>18</sys:String>
+						<sys:String>19</sys:String>
+						<sys:String>20</sys:String>
+						<sys:String>21</sys:String>
+						<sys:String>22</sys:String>
+						<sys:String>23</sys:String>
+						<sys:String>24</sys:String>
+						<sys:String>25</sys:String>
+						<sys:String>26</sys:String>
+						<sys:String>27</sys:String>
+						<sys:String>28</sys:String>
+						<sys:String>29</sys:String>
+						<sys:String>30</sys:String>
+						<sys:String>31</sys:String>
+					</panels:ListViewExtended>-->
+		<DataGrid Grid.Row="1"
+				  GridView.ColumnCollection="{StaticResource a}">
+			<sys:String>asdasdasdasdasdaa</sys:String>
+		</DataGrid>
+	</Grid>
+</Window>

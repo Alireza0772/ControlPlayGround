@@ -1,0 +1,145 @@
+﻿<UserControl x:Class="ControlPlayGround.Controls.UserControls.PoppingPanelControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ControlPlayGround.Controls.UserControls"
+			 xmlns:panels="clr-namespace:ControlPlayGround.Controls.Panels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<panels:PoppingStackPanel Grid.Column="1" MaxScale="0.3" Background="Transparent">
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+			<TextBlock Text="Salam"
+					   Foreground="#FFCCCCCC"
+					   TextAlignment="Center"
+					   Background="{StaticResource BluePink}"
+					   Margin="2">
+				<TextBlock.Effect>
+					<DropShadowEffect />
+				</TextBlock.Effect>
+			</TextBlock>
+		</panels:PoppingStackPanel>
+	</Grid>
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+	<ResourceDictionary.MergedDictionaries>
+		<ResourceDictionary Source="Colors/MainColors.xaml" />
+		<ResourceDictionary Source="Brushes/GradientBrushes/BluishPalette.xaml" />
+		<ResourceDictionary Source="Styles/TabControlStyle.xaml" />
+		<ResourceDictionary Source="Styles/SearchBoxStyle.xaml" />
+		<ResourceDictionary Source="Styles/WindowChromeButtonStyle.xaml" />
+		<ResourceDictionary Source="Styles/MainWindowStyle.xaml" />
+		<ResourceDictionary Source="Styles/GroupBoxStyle.xaml" />
+		<ResourceDictionary Source="Styles/RadialComboBoxStyle.xaml" />
+	</ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
